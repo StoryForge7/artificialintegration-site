@@ -254,3 +254,36 @@ section.first { border-top: none; }
 }
 
 .mt { margin-top: 20px; }
+
+/* ================= v2: motion + shared polish ================= */
+:root {
+  --dark: #0A0A0A;
+  --dark-2: #141413;
+  --on-dark: #FAFAF7;
+  --on-dark-2: #8E8E89;
+  --line-dark: rgba(250,250,247,0.10);
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --radius: 14px;
+}
+
+/* Reveal (only hidden when JS is running) */
+.js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.js [data-reveal].in { opacity: 1; transform: none; }
+
+/* Header states */
+.site-header { transition: background .3s, border-color .3s, box-shadow .3s; }
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--line), 0 10px 30px -20px rgba(10,10,10,.25); }
+.site-header.is-dark { background: rgba(10,10,10,0.55); border-bottom-color: var(--line-dark); box-shadow: none; }
+.site-header.is-dark .mark img { filter: invert(1); }
+.site-header.is-dark .mark span, .site-header.is-dark .site-nav a { color: var(--on-dark-2); }
+.site-header.is-dark .site-nav a:hover { color: var(--on-dark); }
+.site-header.is-dark .site-nav .btn { background: var(--on-dark); border-color: var(--on-dark); color: var(--ink); }
+.site-header.is-dark .site-nav .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* Rounded, softer surfaces */
+.btn { border-radius: 999px; padding: 13px 22px; }
+.btn.sm { padding: 9px 16px; }
+.btn.glow { box-shadow: 0 0 0 0 rgba(227,107,63,.0), 0 12px 30px -10px rgba(227,107,63,.55); background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.glow:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.card { border-radius: var(--radius); }
+.price-card { border-radius: calc(var(--radius) + 4px); }
