@@ -13,9 +13,10 @@ uniform vec2  uMouse;   // -1..1
 uniform float uAmp;     // 0..1 speech envelope
 uniform int   uSteps;
 
-const vec3 INK    = vec3(0.039, 0.039, 0.039);
-const vec3 ACCENT = vec3(0.890, 0.420, 0.247);
-const vec3 WARM   = vec3(1.000, 0.835, 0.700);
+const vec3 DEEP   = vec3(0.780, 0.330, 0.160);   // shadow side: burnt orange, never black
+const vec3 ACCENT = vec3(0.890, 0.420, 0.247);   // brand #E36B3F
+const vec3 PEACH  = vec3(1.000, 0.760, 0.620);
+const vec3 WARM   = vec3(1.000, 0.960, 0.920);
 
 // --- noise (iq value noise) ---
 float hash(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
@@ -36,7 +37,7 @@ float map(vec3 p){
   // low-frequency, smooth displacement: reads as liquid, not rock
   float n = fbm(p * 1.05 + vec3(0.0, uTime * 0.30, uTime * 0.18));
   float w = sin(p.y * 3.0 + uTime * 2.2) * sin(p.x * 2.5 - uTime * 1.7) * 0.5 + 0.5;
-  float r = 1.0 + (n - 0.5) * 0.32 + w * uAmp * 0.12;
+  float r = 1.0 + (n - 0.5) * 0.22 + w * uAmp * 0.10;
   return (length(p) - r) * 0.75;
 }
 
@@ -70,9 +71,13 @@ void main(){
     float spec = pow(clamp(dot(reflect(-l, n), -rd), 0.0, 1.0), 64.0);
     float spec2 = pow(clamp(dot(reflect(-normalize(vec3(0.7,0.3,0.6)), n), -rd), 0.0, 1.0), 24.0);
     float back = clamp(dot(n, normalize(vec3(0.5, -0.6, -0.4))), 0.0, 1.0);
-    vec3 c = INK * (0.35 + dif * 0.9);
-    c += ACCENT * (fres * (0.9 + uAmp * 0.8) + back * 0.35);
-    c += WARM * spec * 1.1 + ACCENT * spec2 * 0.35;
+    // Soft, luminous body: lit side peach, shadow side burnt orange, glowing rim.
+    float wrap = clamp(dot(n, l) * 0.5 + 0.5, 0.0, 1.0);          // wrapped diffuse = no hard terminator
+    vec3 c = mix(DEEP, ACCENT, smoothstep(0.0, 0.6, wrap));
+    c = mix(c, PEACH, smoothstep(0.55, 1.0, wrap));
+    c += PEACH * back * 0.25;                                       // subsurface-ish bounce
+    c = mix(c, WARM, fres * (0.45 + uAmp * 0.3));                   // light rim, not a dark halo
+    c += WARM * spec * 0.9 + PEACH * spec2 * 0.3;
     col = vec4(c, 1.0);
   } else {
     // sound rings + glow, drawn where the ray misses. R = projected orb radius in uv.

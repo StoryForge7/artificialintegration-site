@@ -1,5 +1,5 @@
 // Home page: WebGL orb, scripted hero call, scroll-driven story phone, fanned cards.
-import { createOrb } from './orb.js';
+import { createOrb } from './orb.js?v=92656b2d';
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lowPower = window.matchMedia('(max-width: 760px)').matches || (navigator.hardwareConcurrency || 8) <= 4;

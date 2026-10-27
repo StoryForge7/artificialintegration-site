@@ -239,3 +239,89 @@ contact = '''<section class="hero first">
 page('contact/index.html', 'Book a Demo · Artificial Integration',
      'Book a 15-minute demo of an AI receptionist set up for your business.', '/contact/', contact, nav='/book')
 print('contact built')
+
+# ---------------- ELECTRICIANS ----------------
+electricians = '''<section class="hero first">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">For electricians</span>
+      <h1>You can't answer the phone from inside a loft<span class="dot">.</span></h1>
+      <p class="lede">Mid-rewire, testing a board, or driving to the next job. The customer rings, gets voicemail, and calls the next electrician on Google. An AI receptionist picks up, takes the job details, and texts them to you when the call ends.</p>
+      <div class="cta-row">
+        <a href="/book" class="btn">Book a 15-min demo <span class="arrow">→</span></a>
+        <a href="/pricing/" class="btn ghost">Pricing</a>
+      </div>
+      <p class="fine"><span>Keep your number</span><span>Set up for you</span><span>£99/month · no contract</span></p>
+    </div>
+    <div class="card" aria-label="Example electrician job summary">
+      <div class="card-head"><span class="live">New job · 10:42</span><span>while you were on the tools</span></div>
+      <div class="summary">
+        <div class="summary-title">Job summary</div>
+        <ul class="kv">
+          <li><span class="k">type</span><span><span class="tag">new lead</span></span></li>
+          <li><span class="k">job</span><span>Consumer unit upgrade + EICR</span></li>
+          <li><span class="k">property</span><span>3-bed semi · old fuse board</span></li>
+          <li><span class="k">where</span><span>Letchworth SG6</span></li>
+          <li><span class="k">customer</span><span>Homeowner · selling the house</span></li>
+          <li><span class="k">when</span><span>Before completion, end of month</span></li>
+          <li><span class="k">next</span><span>Call back with a price</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">What it asks</span><h2>The questions you'd ask<span class="dot">.</span></h2></div>
+      <p>Set up with the details you need to price a job or decide if it can't wait, so you ring back ready.</p>
+    </div>
+    <div class="grid">
+      <div><span class="ico">01</span><h3>The fault or the job</h3><p>Tripping RCD, dead sockets, rewire, consumer unit, EV charger, EICR.</p></div>
+      <div><span class="ico">02</span><h3>Is it safe?</h3><p>Burning smell, scorch marks, sparking, no power. You choose what gets put straight through.</p></div>
+      <div><span class="ico">03</span><h3>The property</h3><p>House or flat, size, age of the board, who owns it.</p></div>
+      <div><span class="ico">04</span><h3>Who's calling</h3><p>Homeowner, landlord, letting agent, or a builder you work with.</p></div>
+      <div><span class="ico">05</span><h3>Where</h3><p>Postcode, so you can tell straight away whether it's in your area.</p></div>
+      <div><span class="ico">06</span><h3>When</h3><p>Today, this week, or before a deadline like a sale or a new tenant.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Emergencies and regulars</span>
+      <h2>The calls that matter get through<span class="dot">.</span></h2>
+      <p class="lede mt">You set the rules. Emergencies and the builders and agents you work with can be put straight through to you. Everything else is captured and summarised.</p>
+    </div>
+    <ul class="ticks">
+      <li>No power or burning smell? Put through to you live</li>
+      <li>New quotes captured with the details you need</li>
+      <li>Landlords texted a link to book their EICR</li>
+      <li>After-hours calls answered, not sent to voicemail</li>
+    </ul>
+  </div>
+</section>
+''' + band.format(h='Hear it take a call for your business', p='We set up a test receptionist with your business name before the demo.')
+page('electricians/index.html', 'AI Receptionist for Electricians · Artificial Integration',
+     'An AI receptionist for UK electricians. Answers while you are on the tools, checks for emergencies, and texts you the job details.',
+     '/electricians/', electricians)
+print('electricians built')
+
+# ---------------- CACHE BUSTING ----------------
+# Assets are cached for a year (see _headers); every reference carries ?v=<content hash>.
+# Order matters: orb.js is imported by home.js, so home.js is rewritten before it is hashed.
+import hashlib, glob
+def h8(path): return hashlib.sha256(open(path, 'rb').read()).hexdigest()[:8]
+asset_re = re.compile(r'(/assets/[\w./-]+\.(?:css|js))(?:\?v=[0-9a-f]+)?')
+home = 'assets/js/home.js'
+js = open(home).read()
+js = re.sub(r"'\./orb\.js(?:\?v=[0-9a-f]+)?'", f"'./orb.js?v={h8('assets/js/orb.js')}'", js)
+open(home, 'w').write(js)
+versions = {f'/{p}': h8(p) for p in glob.glob('assets/**/*.*', recursive=True) if p.endswith(('.css', '.js'))}
+for f in glob.glob('**/*.html', recursive=True):
+    html = open(f).read()
+    new = asset_re.sub(lambda m: f'{m.group(1)}?v={versions[m.group(1)]}' if m.group(1) in versions else m.group(0), html)
+    if new != html: open(f, 'w').write(new)
+print('assets versioned:', ', '.join(f'{k}={v}' for k, v in sorted(versions.items())))
