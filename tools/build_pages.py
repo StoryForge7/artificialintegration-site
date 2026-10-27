@@ -72,10 +72,10 @@ pricing = '''<section class="hero first">
       <div class="price"><span class="amt">£99</span><span class="per">/ month + VAT</span></div>
       <div class="sub">Monthly rolling · no setup fee · cancel any time</div>
       <ul class="ticks">
-        <li>Answers on your existing number, 24/7 or on your schedule</li>
+        <li>Works with your existing number, 24/7 or on working hours you set</li>
         <li>Trained on your services, prices, area, and hours</li>
         <li>SMS + email summary after every call</li>
-        <li>Urgent call transfer to your mobile</li>
+        <li>Urgent calls transferred to you or your team</li>
         <li>Transcripts and recordings</li>
         <li>Built, tested, and tuned for you by us</li>
         <li>Changes on request — new services, hours, prices</li>
@@ -178,10 +178,10 @@ removals = '''<section class="hero first">
       <p class="lede mt">Customers on move day can be put straight through to you or the crew lead. New enquiries are captured and summarised.</p>
     </div>
     <ul class="ticks">
-      <li>Move-day calls transferred to your mobile</li>
+      <li>Move-day calls transferred to you or the crew lead</li>
       <li>New quote requests captured with full details</li>
       <li>After-hours enquiries answered, not lost</li>
-      <li>Spam and sales calls filtered out</li>
+      <li>Callers can be texted a link to book a survey</li>
     </ul>
   </div>
 </section>
@@ -232,7 +232,7 @@ contact = '''<section class="hero first">
       <li><span class="k">Email</span><a href="mailto:hello@artificialintegration.io">hello@artificialintegration.io</a></li>
       <!-- TODO(contact): add demo line number (route to a live receptionist so prospects can call it) -->
       <li><span class="k">Studio</span><span>London, UK</span></li>
-      <li><span class="k">Response</span><span>Same working day</span></li>
+      <li><span class="k">Reply</span><span>Within one working day</span></li>
     </ul>
   </div>
 </section>'''
