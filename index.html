@@ -1,688 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artificial Integration</title>
-<meta name="description" content="AI engineering studio. Production systems for ecommerce.">
-<link rel="icon" type="image/png" href="logos/ai-logo.png">
+<title>AI Receptionist for UK Businesses · Artificial Integration</title>
+<meta name="description" content="An AI receptionist that answers the calls you miss, captures the job details, and texts you a summary. Set up for you, on your existing number.">
+<link rel="canonical" href="https://artificialintegration.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI receptionist for UK businesses · Artificial Integration">
+<meta property="og:description" content="Answers the calls you miss, captures the job, texts you the summary.">
+<meta property="og:url" content="https://artificialintegration.io/">
+<meta property="og:image" content="https://artificialintegration.io/logos/ai-logo.png">
+<meta name="theme-color" content="#FAFAF7">
+<link rel="icon" type="image/png" href="/logos/ai-logo-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #FAFAF7;
-  --ink: #0A0A0A;
-  --ink-2: #6B6B6B;
-  --ink-3: #A8A8A5;
-  --accent: #E36B3F;
-  --line: rgba(10,10,10,0.08);
-  --sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
-}
-
-::selection { background: var(--ink); color: var(--bg); }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.55;
-  font-feature-settings: 'ss01', 'cv11', 'tnum';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a { color: inherit; }
-
-main {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 56px 32px 120px;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 88px;
-}
-.mark {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--ink);
-}
-.mark img { height: 88px; width: auto; display: block; }
-
-header nav {
-  display: flex;
-  gap: 24px;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: -0.01em;
-}
-header nav a {
-  color: var(--ink-2);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-header nav a:hover { color: var(--ink); }
-
-.intro {
-  font-size: 19px;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  margin-bottom: 96px;
-  max-width: 520px;
-  color: var(--ink);
-}
-.intro .dot { color: var(--accent); }
-.intro .muted { color: var(--ink-2); }
-
-.sec-title {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-}
-
-.rows { list-style: none; }
-.rows li {
-  display: grid;
-  grid-template-columns: 56px 1fr auto;
-  gap: 24px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: baseline;
-}
-.rows li:last-child { border-bottom: none; }
-.rows .meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: 0.02em;
-}
-.rows .title {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-}
-a.title::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: -2px;
-  height: 1px;
-  background: var(--ink);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease;
-}
-a.title:hover::after { transform: scaleX(1); }
-.rows .desc {
-  color: var(--ink-2);
-  font-size: 13px;
-  text-align: right;
-}
-
-section { margin-bottom: 72px; }
-
-.entry {
-  margin: 64px 0;
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
-  scroll-margin-top: 32px;
-}
-.entry-meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: 0.04em;
-  margin-bottom: 18px;
-  display: flex;
-  gap: 12px;
-}
-.entry-meta .sep { color: var(--ink-3); opacity: 0.5; }
-.entry h2 {
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  margin-bottom: 18px;
-}
-.entry p {
-  margin-bottom: 14px;
-  color: var(--ink);
-  max-width: 520px;
-}
-.stack {
-  margin-top: 22px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-2);
-  letter-spacing: 0.02em;
-}
-.stack span:not(:last-child)::after {
-  content: ' · ';
-  color: var(--ink-3);
-}
-.entry-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink);
-  text-decoration: none;
-  margin-top: 24px;
-  padding-bottom: 2px;
-  border-bottom: 1px solid var(--ink);
-}
-.entry-link .arrow { transition: transform 0.15s ease; }
-.entry-link:hover .arrow { transform: translateX(3px); }
-
-.prose p {
-  max-width: 520px;
-  margin-bottom: 14px;
-}
-.prose a {
-  color: var(--ink);
-  border-bottom: 1px solid var(--ink-3);
-  text-decoration: none;
-  padding-bottom: 1px;
-  transition: border-color 0.15s;
-}
-.prose a:hover { border-color: var(--ink); }
-.prose .name { color: var(--ink); font-weight: 500; }
-
-/* Pipeline diagram */
-.pipeline {
-  margin: 28px 0 4px;
-  padding: 22px 20px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  background: rgba(10,10,10,0.015);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  overflow-x: auto;
-}
-
-/* Video embed */
-.video {
-  margin: 28px 0 8px;
-  aspect-ratio: 16/9;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  overflow: hidden;
-  background: rgba(10,10,10,0.04);
-  position: relative;
-}
-.video video, .video img.poster {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-.video-caption {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--ink-3);
-  letter-spacing: 0.04em;
-  margin-top: 8px;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-
-/* Process breakdown */
-.stats {
-  margin: 24px 0 16px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.stats .stat {
-  background: var(--bg);
-  padding: 18px 16px;
-  text-align: center;
-}
-.stats .num {
-  font-family: var(--mono);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  display: block;
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
-.stats .num .accent { color: var(--accent); }
-.stats .label {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  color: var(--ink-3);
-  text-transform: uppercase;
-}
-
-.process {
-  margin: 24px 0 8px;
-  padding: 20px 22px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  background: rgba(10,10,10,0.015);
-}
-.process-title {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 14px;
-}
-.process ul {
-  list-style: none;
-}
-.process li {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 16px;
-  padding: 7px 0;
-  font-size: 13px;
-  align-items: baseline;
-  border-bottom: 1px dashed rgba(10,10,10,0.06);
-}
-.process li:last-child { border-bottom: none; }
-.process .stage {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink);
-  letter-spacing: 0.02em;
-}
-.process .detail {
-  color: var(--ink-2);
-}
-
-/* Highlights bullets */
-.highlights {
-  margin: 24px 0 8px;
-  padding: 20px 22px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  background: rgba(10,10,10,0.015);
-}
-.highlights-title {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 14px;
-}
-.highlights ul {
-  list-style: none;
-}
-.highlights li {
-  position: relative;
-  padding: 8px 0 8px 24px;
-  font-size: 13px;
-  color: var(--ink);
-  border-bottom: 1px dashed rgba(10,10,10,0.06);
-  line-height: 1.5;
-}
-.highlights li:last-child { border-bottom: none; }
-.highlights li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-}
-.pipeline-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
-.pipeline .node {
-  padding: 5px 10px;
-  border: 1px solid rgba(10,10,10,0.18);
-  color: var(--ink);
-  background: var(--bg);
-  border-radius: 2px;
-}
-.pipeline .node.accent {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-.pipeline .arrow {
-  color: var(--ink-3);
-}
-.pipeline-loop {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--ink-2);
-  font-size: 10.5px;
-  white-space: nowrap;
-}
-.pipeline-loop::before {
-  content: '↳';
-  color: var(--accent);
-  font-size: 14px;
-}
-
-footer {
-  margin-top: 88px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: 0.02em;
-}
-footer a {
-  color: var(--ink-2);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-footer a:hover { color: var(--ink); }
-
-@media (max-width: 640px) {
-  main { padding: 32px 20px 80px; }
-  header { margin-bottom: 56px; }
-  .mark img { height: 68px; }
-  .intro { font-size: 17px; margin-bottom: 64px; }
-  .rows li { grid-template-columns: 48px 1fr; gap: 12px; }
-  .rows .desc { grid-column: 2; text-align: left; font-size: 12px; }
-  .entry h2 { font-size: 17px; }
-  footer { flex-direction: column; gap: 8px; }
-}
-
-/* Sticky left rail */
-.rail {
-  display: none;
-  position: fixed;
-  left: 40px;
-  top: 56px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  max-width: 160px;
-  z-index: 10;
-}
-@media (min-width: 1080px) {
-  .rail { display: block; }
-}
-.rail-title {
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 10px;
-  margin-bottom: 14px;
-  color: var(--ink-3);
-}
-.rail ul { list-style: none; }
-.rail li { padding: 4px 0; }
-.rail a {
-  color: var(--ink-3);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.15s;
-}
-.rail a::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.5;
-  transition: width 0.2s ease, background 0.2s, opacity 0.2s;
-}
-.rail a:hover { color: var(--ink); }
-.rail a.active {
-  color: var(--ink);
-}
-.rail a.active::before {
-  width: 16px;
-  background: var(--accent);
-  opacity: 1;
-}
-</style>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"AI receptionist","provider":{"@type":"Organization","name":"Artificial Integration","url":"https://artificialintegration.io","email":"hello@artificialintegration.io"},"areaServed":"GB"}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<aside class="rail" aria-label="Section navigation">
-  <div class="rail-title">Index</div>
-  <ul>
-    <li><a href="#storyforge" data-rail="storyforge">StoryForge</a></li>
-    <li><a href="#approval-flow" data-rail="approval-flow">Approval Flow</a></li>
-    <li><a href="#studio" data-rail="studio">Studio</a></li>
-    <li><a href="#capabilities" data-rail="capabilities">Capabilities</a></li>
-  </ul>
-</aside>
-
-<main>
-
-<header>
-  <a href="/" class="mark" aria-label="Artificial Integration"><img src="logos/ai-logo.png" alt=""></a>
-  <nav>
-    <a href="#work">work</a>
-    <a href="#studio">studio</a>
-    <a href="mailto:hello@artificialintegration.io">contact</a>
-  </nav>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="mark" aria-label="Artificial Integration home"><img src="/logos/ai-logo-192.png" alt="" width="48" height="48"><span>ai receptionist</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#how" class="hide-sm">how it works</a>
+      <a href="/#industries" class="hide-sm">industries</a>
+      <a href="/pricing/">pricing</a>
+      <a href="/book" class="btn sm">Book a demo</a>
+    </nav>
+  </div>
 </header>
 
-<p class="intro">
-  Artificial Integration is a two&#8209;person engineering studio. <span class="muted">We build production AI systems, bespoke Shopify apps, and the infrastructure underneath them<span class="dot">.</span></span>
-</p>
+<main id="main">
 
-<section id="work">
-  <div class="sec-title">
-    <span>Selected work</span>
-    <span>2026</span>
-  </div>
-  <ul class="rows">
-    <li>
-      <span class="meta">2026</span>
-      <a href="#storyforge" class="title">StoryForge</a>
-      <span class="desc">AI pipeline · in-house system</span>
-    </li>
-    <li>
-      <span class="meta">2026</span>
-      <a href="#approval-flow" class="title">Approval Flow</a>
-      <span class="desc">Shopify app · studio product</span>
-    </li>
-  </ul>
-</section>
+<!-- ================= HERO ================= -->
+<section class="hero first">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">AI receptionist · UK</span>
+      <h1>Every call answered<span class="dot">.</span><br>Every job captured<span class="dot">.</span></h1>
+      <p class="lede">An AI receptionist trained on your business. It picks up when you can't, takes the caller's details, and texts you a summary — so the job doesn't go to whoever answered first.</p>
+      <div class="cta-row">
+        <a href="/book" class="btn">Book a 15-min demo <span class="arrow">→</span></a>
+        <a href="/#how" class="btn ghost">How it works</a>
+      </div>
+      <p class="fine"><span>Keep your number</span><span>Set up for you</span><span>No contract</span></p>
+    </div>
 
-<article id="storyforge" class="entry">
-  <div class="entry-meta">
-    <span>2026</span><span class="sep">/</span><span>In-house system</span>
-  </div>
-  <h2>StoryForge</h2>
-
-  <div class="video">
-    <video muted loop playsinline preload="metadata">
-      <source src="https://media.artificialintegration.io/storyforge.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="video-caption">Intake to finished book · 5 minutes</div>
-
-  <p>An automated pipeline that produces fully illustrated, personalised children's books from a short intake questionnaire. Built originally for <a href="https://whenigrowup.shop" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--ink-3);text-decoration:none;">When I Grow Up</a>, where it now runs the entire fulfilment chain.</p>
-  <p>Intake to print-ready PDF runs end-to-end without human intervention, orchestrated on Cloudflare Workers.</p>
-
-  <div class="stats">
-    <div class="stat"><span class="num">24</span><span class="label">Scenes per book</span></div>
-    <div class="stat"><span class="num">300</span><span class="label">Seconds end-to-end</span></div>
-    <div class="stat"><span class="num">0</span><span class="label">Humans in the render loop</span></div>
-  </div>
-
-  <div class="process">
-    <div class="process-title">Process</div>
-    <ul>
-      <li>
-        <span class="stage">intake</span>
-        <span class="detail">A guided questionnaire captures the child's identity, story themes, and a reference photo. Structured output feeds the orchestrator.</span>
-      </li>
-      <li>
-        <span class="stage">claude</span>
-        <span class="detail">A single inference pass generates a 24-scene narrative arc, a character profile, and per-page art direction.</span>
-      </li>
-      <li>
-        <span class="stage">fal.ai</span>
-        <span class="detail">24 character-consistent illustrations. Face, style, and palette locked across the full book without retouching or post-processing.</span>
-      </li>
-      <li>
-        <span class="stage">playwright</span>
-        <span class="detail">Headless layout engine sets type, composes pages, and exports a print-ready PDF in commercial bleed.</span>
-      </li>
-      <li>
-        <span class="stage">qc</span>
-        <span class="detail">A reviewer flags a page in natural language. The system regenerates only the affected page and recompiles the book.</span>
-      </li>
-    </ul>
-  </div>
-
-  <p style="margin-top: 24px;">No manual rendering, no manual stitching. The QC loop closes the system: a reviewer's prompt is the only edit surface, and the pipeline handles regeneration and recompile.</p>
-
-  <div class="stack">
-    <span>TypeScript</span><span>Cloudflare Workers</span><span>Claude API</span><span>fal.ai</span><span>Playwright</span><span>D1 + R2</span>
-  </div>
-</article>
-
-<article id="approval-flow" class="entry">
-  <div class="entry-meta">
-    <span>2026</span><span class="sep">/</span><span>Studio product</span>
-  </div>
-  <h2>Approval Flow</h2>
-
-  <div class="video">
-    <video muted loop playsinline preload="metadata">
-      <source src="https://media.artificialintegration.io/approval-flow.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="video-caption">Merchant queue · customer approval · 45s</div>
-
-  <p>A Shopify app for personalised-product merchants. Customers approve their proof through a signed link before fulfilment; merchants get a one-screen queue for upload, send, and approval.</p>
-  <p>Built end-to-end in three days on Cloudflare Workers, D1, and R2. HMAC-verified webhooks ingest Shopify orders the moment they're placed. Signed customer sessions gate proof access without requiring login. File delivery streams through the worker, so raw R2 URLs are never exposed.</p>
-
-  <div class="highlights">
-    <div class="highlights-title">Highlights</div>
-    <ul>
-      <li>One-screen merchant queue: upload, send, approve, or request changes without leaving the dashboard.</li>
-      <li>Customer approval flow has no login, no app install, no friction.</li>
-      <li>168-hour signed customer tokens with HMAC verification and auto-expiry.</li>
-      <li>Transactional email via Resend with one-click approval links.</li>
-      <li>Webhook orchestration: order created → proof row → email → approval state machine.</li>
-      <li>Live on a paying store within a week of starting.</li>
-    </ul>
-  </div>
-
-  <div class="stack">
-    <span>TypeScript</span><span>Hono</span><span>D1 + R2</span><span>Shopify OAuth</span><span>Resend</span>
-  </div>
-</article>
-
-
-
-<section id="studio">
-  <div class="sec-title">
-    <span>Studio</span>
-    <span>London</span>
-  </div>
-  <div class="prose">
-    <p>Run by <span class="name">Isaac Nethersole</span> and <span class="name">Max Chambers</span>. We work directly with ecommerce founders and the agencies that serve them.</p>
-    <p>Engagements range from production AI pipelines and bespoke Shopify apps to backend systems and short technical advisory blocks. We take on one or two projects at a time.</p>
-    <p>Available for new work from <span class="name">June 2026</span>. Send a note to <a href="mailto:hello@artificialintegration.io">hello@artificialintegration.io</a>.</p>
+    <div class="card" aria-label="Example call handled by the AI receptionist">
+      <div class="card-head"><span class="live">Live call · 18:42</span><span>after hours</span></div>
+      <ul class="transcript">
+        <li class="ai"><span class="who">ai</span><span>Hi, you've reached Harlow &amp; Sons Removals. How can I help?</span></li>
+        <li><span class="who">caller</span><span>I need a quote for a 3-bed move, Chelmsford to Cambridge, end of next month.</span></li>
+        <li class="ai"><span class="who">ai</span><span>Happy to help. Any large items — piano, American fridge-freezer? And do you need packing?</span></li>
+        <li><span class="who">caller</span><span>A piano, yes. Packing too.</span></li>
+      </ul>
+      <div class="summary">
+        <div class="summary-title">Sent to you by SMS · 18:45</div>
+        <ul class="kv">
+          <li><span class="k">type</span><span><span class="tag">new lead</span></span></li>
+          <li><span class="k">job</span><span>3-bed move · Chelmsford → Cambridge</span></li>
+          <li><span class="k">when</span><span>End of next month, flexible</span></li>
+          <li><span class="k">extras</span><span>Piano · full packing</span></li>
+          <li><span class="k">next</span><span>Call back for survey</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="capabilities">
-  <div class="sec-title">
-    <span>Capabilities</span>
+<!-- ================= PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">The problem</span>
+        <h2>Missed calls are lost jobs<span class="dot">.</span></h2>
+      </div>
+      <p>You're on a job, driving, or it's gone six. The caller doesn't leave a voicemail — they ring the next business on Google. An AI receptionist closes that gap without adding payroll.</p>
+    </div>
+    <div class="grid">
+      <div><span class="ico">01</span><h3>No more voicemail</h3><p>Callers get a conversation, not a beep. Details are captured while the intent is hot.</p></div>
+      <div><span class="ico">02</span><h3>A fraction of a hire</h3><p>One flat monthly fee. No salary, holiday cover, or sick days.</p></div>
+      <div><span class="ico">03</span><h3>Knows your business</h3><p>Trained on your services, prices, area, and hours — not a generic script read by a call centre.</p></div>
+      <div><span class="ico">04</span><h3>On when you want it</h3><p>After hours, when you're busy, or all day. You decide with call forwarding.</p></div>
+      <div><span class="ico">05</span><h3>Urgent calls reach you</h3><p>Emergencies and existing customers can be transferred straight to your mobile.</p></div>
+      <div><span class="ico">06</span><h3>Set up for you</h3><p>We build and test your receptionist with you. No dashboards to learn on day one.</p></div>
+    </div>
   </div>
-  <ul class="rows">
-    <li>
-      <span class="meta">01</span>
-      <span class="title">AI pipelines</span>
-      <span class="desc">Ingestion, model integration, deployment</span>
-    </li>
-    <li>
-      <span class="meta">02</span>
-      <span class="title">Shopify apps</span>
-      <span class="desc">Embedded and public, OAuth, webhooks</span>
-    </li>
-    <li>
-      <span class="meta">03</span>
-      <span class="title">Backend systems</span>
-      <span class="desc">APIs, integrations, edge infrastructure</span>
-    </li>
-    <li>
-      <span class="meta">04</span>
-      <span class="title">Advisory</span>
-      <span class="desc">Short engagements on architecture</span>
-    </li>
-  </ul>
 </section>
 
-<footer>
-  <span>Artificial Integration · 2026</span>
-  <span><a href="mailto:hello@artificialintegration.io">hello@artificialintegration.io</a></span>
-</footer>
+<!-- ================= HOW ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2>Live on your number in a day<span class="dot">.</span></h2>
+      </div>
+      <p>No new phone line, no hardware. Your existing number forwards to the receptionist when you choose.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="n">01</span><h3>Tell us about the business</h3><p>Send your website or Google listing. We pull services, hours, service area, and common questions.</p><span class="t">~10 min</span></li>
+      <li><span class="n">02</span><h3>We build and tune it</h3><p>Greeting, questions to ask, what counts as urgent, who gets transferred. Written in your language, not ours.</p><span class="t">same day</span></li>
+      <li><span class="n">03</span><h3>Test it on a real call</h3><p>You get a test number. Ring it, try to trip it up, and read the summary that lands on your phone.</p><span class="t">~5 min</span></li>
+      <li><span class="n">04</span><h3>Turn on forwarding</h3><p>Forward when busy, unanswered, or after hours. Switch it off any time from your phone.</p><span class="t">~1 min</span></li>
+      <li><span class="n">05</span><h3>Win the job</h3><p>Every call arrives as a summary with the caller's details. Call back, quote, book.</p><span class="t">ongoing</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= AFTER THE CALL ================= -->
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">After every call</span>
+      <h2>The details, not a voicemail<span class="dot">.</span></h2>
+      <p class="lede mt">Each call becomes a structured message you can act on in ten seconds.</p>
+      <ul class="ticks">
+        <li>Caller name, number, and what they need</li>
+        <li>Call type: new lead, existing customer, urgent, spam</li>
+        <li>Summary by SMS or email the moment the call ends</li>
+        <li>Full transcript and recording kept for reference</li>
+        <li>Optional booking into your calendar</li>
+      </ul>
+    </div>
+    <div class="card" aria-label="Example call summaries">
+      <div class="card-head"><span>Today</span><span>4 calls handled</span></div>
+      <ul class="transcript">
+        <li><span class="who">07:58</span><span><span class="tag">urgent</span> Boiler out, no hot water — transferred to you</span></li>
+        <li><span class="who">11:20</span><span><span class="tag">new lead</span> Kitchen rewire quote, SG postcode</span></li>
+        <li><span class="who">13:05</span><span>Existing customer — confirming Thursday 9am</span></li>
+        <li><span class="who">19:41</span><span><span class="tag">new lead</span> Loft conversion enquiry, wants survey</span></li>
+      </ul>
+      <div class="summary"><div class="summary-title">Missed without it</div><p class="small muted">4 calls between jobs and after hours. Without cover, each one is a voicemail at best — a lost job at worst.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INDUSTRIES ================= -->
+<section id="industries">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Who it's for</span>
+        <h2>Built for businesses that live on the phone<span class="dot">.</span></h2>
+      </div>
+      <p>Each receptionist is configured for the trade: the questions to ask, the jargon, and what makes a call urgent.</p>
+    </div>
+    <div class="inds">
+      <a href="/removals/"><span class="name">Removals</span><span class="d">Move size, dates, access, extras</span></a>
+      <div><span class="name">Plumbing &amp; heating</span><span class="d">Leaks, boilers, emergency triage</span></div>
+      <div><span class="name">Electricians</span><span class="d">Faults, rewires, EICRs</span></div>
+      <div><span class="name">Builders</span><span class="d">Extensions, lofts, site visits</span></div>
+      <div><span class="name">Roofers</span><span class="d">Leaks, storm damage, surveys</span></div>
+      <div><span class="name">Locksmiths</span><span class="d">Lockouts, urgent callouts</span></div>
+      <div><span class="name">Garages</span><span class="d">MOTs, servicing, breakdowns</span></div>
+      <div><span class="name">Cleaning</span><span class="d">End of tenancy, commercial</span></div>
+      <div><span class="name">Landscaping</span><span class="d">Quotes, seasonal work</span></div>
+      <div><span class="name">Estate &amp; letting</span><span class="d">Viewings, valuations, maintenance</span></div>
+      <div><span class="name">Clinics</span><span class="d">Bookings, reschedules, enquiries</span></div>
+      <div><span class="name">Professional services</span><span class="d">Accountants, solicitors, brokers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING TEASER ================= -->
+<section>
+  <div class="wrap price-wrap">
+    <div>
+      <span class="eyebrow">Pricing</span>
+      <h2>One plan. One price<span class="dot">.</span></h2>
+      <p class="lede mt">No per-minute billing surprises, no long contract. Setup is done for you.</p>
+      <p class="lede mt"><a href="/pricing/" class="btn ghost">Full pricing &amp; comparison <span class="arrow">→</span></a></p>
+    </div>
+    <div class="price-card">
+      <div class="plan">Receptionist</div>
+      <!-- TODO(pricing): replace £XX before launch -->
+      <div class="price"><span class="amt">£XX</span><span class="per">/ month + VAT</span></div>
+      <div class="sub">Monthly rolling · cancel any time</div>
+      <ul class="ticks">
+        <li>Answers on your existing number</li>
+        <li>SMS + email summaries for every call</li>
+        <li>Urgent call transfer to your mobile</li>
+        <li>Transcripts and recordings</li>
+        <li>Built, tested, and tuned for you</li>
+      </ul>
+      <a href="/book" class="btn">Book a demo <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions<span class="dot">.</span></h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details><summary>What is an AI receptionist?</summary><div class="a"><p>Software that answers your phone, holds a natural conversation, collects the caller's details, and sends you a summary. It handles the calls you would otherwise miss.</p></div></details>
+      <details><summary>Do I need a new phone number?</summary><div class="a"><p>No. You keep your number and set call forwarding — when busy, when unanswered, after hours, or always. Most UK mobile and landline networks support this with a short code.</p></div></details>
+      <details><summary>Will callers know it's AI?</summary><div class="a"><p>It sounds natural and is trained on your business. If a caller asks, it says it's an AI assistant — we don't configure it to claim otherwise.</p></div></details>
+      <details><summary>What happens with emergencies?</summary><div class="a"><p>You define what counts as urgent. Those calls can be transferred to your mobile in real time, or flagged at the top of your summaries.</p></div></details>
+      <details><summary>How long does setup take?</summary><div class="a"><p>Usually the same working day. One short call with us, a test call from you, then you switch forwarding on.</p></div></details>
+      <details><summary>Can I control when it answers?</summary><div class="a"><p>Yes. Forwarding is yours to turn on and off. Common setups: after hours only, or only when you don't pick up within a few rings.</p></div></details>
+      <details><summary>Are calls recorded? What about GDPR?</summary><div class="a"><p>Calls are transcribed and can be recorded. Callers are told at the start of the call. Data is processed under UK GDPR and we sign a data processing agreement with every customer. See our <a href="/privacy/">privacy policy</a>.</p></div></details>
+      <details><summary>Is there a contract?</summary><div class="a"><p>No. Monthly rolling, cancel any time.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2>Stop losing jobs to voicemail<span class="dot">.</span></h2>
+      <p class="lede mt">Hear it answer as your business in a 15-minute demo.</p>
+    </div>
+    <div class="cta-row">
+      <a href="/book" class="btn">Book a demo <span class="arrow">→</span></a>
+      <a href="mailto:hello@artificialintegration.io" class="btn ghost">hello@artificialintegration.io</a>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<script>
-  // Sticky rail: highlight active section
-  const railLinks = document.querySelectorAll('.rail a[data-rail]');
-  const targets = Array.from(railLinks).map(a => document.getElementById(a.dataset.rail)).filter(Boolean);
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        railLinks.forEach(a => a.classList.toggle('active', a.dataset.rail === e.target.id));
-      }
-    });
-  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-  targets.forEach(t => obs.observe(t));
-
-  // Videos: only play when scrolled into view, reset on re-entry
-  document.querySelectorAll('.video video').forEach(v => {
-    const vio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          v.currentTime = 0;
-          v.play().catch(() => {});
-        } else {
-          v.pause();
-        }
-      });
-    }, { threshold: 0.25 });
-    vio.observe(v);
-  });
-</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <img src="/logos/ai-logo-192.png" alt="Artificial Integration" width="56" height="56">
+        <p>AI receptionists for UK businesses. Built and run by a two-person engineering studio in London.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="/#how">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/book">Book a demo</a></li></ul></div>
+      <div><h4>Industries</h4><ul><li><a href="/removals/">Removals</a></li><li><a href="/#industries">All industries</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="mailto:hello@artificialintegration.io">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Artificial Integration</span>
+      <!-- TODO(legal): registered company name, number, address, ICO registration -->
+      <span>London, UK</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

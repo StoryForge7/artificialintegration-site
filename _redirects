@@ -1,0 +1,4 @@
+# All "Book a demo" CTAs hit /book. Swap the target for the booking calendar URL (e.g. GoHighLevel) when live.
+/book      /contact/   302
+/book/     /contact/   302
+/tools/*   /404.html   404
