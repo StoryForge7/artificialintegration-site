@@ -1,4 +1,11 @@
-# All "Book a demo" CTAs hit /book. Swap the target for the booking calendar URL (e.g. GoHighLevel) when live.
+# All "Book a demo" CTAs hit /book. Swap the target for the booking calendar URL when live.
 /book      /contact/   302
 /book/     /contact/   302
+# AI receptionist retired (Nov 2026): old pages go to the Workstation home page.
+/pricing        /   301
+/pricing/       /   301
+/electricians   /   301
+/electricians/  /   301
+/removals       /   301
+/removals/      /   301
 /tools/*   /404.html   404

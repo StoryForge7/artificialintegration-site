@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Receptionist for Electricians &amp; Trades · Artificial Integration</title>
-<meta name="description" content="An AI receptionist for electricians and trades. Answers the calls you miss while you are on the tools, takes the job details, and texts you the lead. Set up for you, on your existing number.">
+<title>Workstation · The AI workspace for recruitment agencies · Artificial Integration</title>
+<meta name="description" content="Workstation puts CV specs, Lusha, LinkedIn strings, company mapping, BD, adverts, calendar and live UK hiring signals into one AI workspace for recruitment consultants. Mac, Windows, iPhone and browser.">
 <link rel="canonical" href="https://artificialintegration.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI receptionist for UK businesses · Artificial Integration">
-<meta property="og:description" content="Answers while you are on the tools. Takes the job details. Texts you the lead.">
+<meta property="og:title" content="Workstation · The AI workspace for recruitment agencies">
+<meta property="og:description" content="Your whole desk in one place: a reasoned call list, live hiring signals, and every placement traced to where it started.">
 <meta property="og:url" content="https://artificialintegration.io/">
 <meta property="og:image" content="https://artificialintegration.io/logos/ai-logo.png">
 <meta name="theme-color" content="#FAFAF7">
@@ -18,23 +18,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css?v=5168b84a">
 <link rel="stylesheet" href="/assets/css/home.css?v=57b0f127">
+<link rel="stylesheet" href="/assets/css/ws.css?v=935c691e">
 <link rel="modulepreload" href="/assets/js/orb.js?v=92656b2d">
 <script src="/assets/js/site.js?v=bc3df820" defer></script>
-<script type="module" src="/assets/js/home.js?v=02f2afdd"></script>
+<script type="module" src="/assets/js/ws.js?v=d9caa149"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","serviceType":"AI receptionist","provider":{"@type":"Organization","name":"Artificial Integration","legalName":"Chambersole Limited","identifier":"14797021","url":"https://artificialintegration.io","email":"hello@artificialintegration.io"},"areaServed":"GB","offers":{"@type":"Offer","price":"99.00","priceCurrency":"GBP","description":"Per month, excluding VAT"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Workstation","applicationCategory":"BusinessApplication","operatingSystem":"macOS, Windows, iOS, Web","description":"AI workspace for recruitment agencies: call lists, CV specs, Lusha, LinkedIn strings, company mapping, BD, calendar, market signals and a revenue funnel.","publisher":{"@type":"Organization","name":"Artificial Integration","legalName":"Chambersole Limited","identifier":"14797021","url":"https://artificialintegration.io","email":"hello@artificialintegration.io"},"areaServed":"GB"}
 </script>
 </head>
-<body class="home">
+<body class="home ws">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="mark" aria-label="Artificial Integration home"><img src="/logos/ai-logo-192.png" alt="" width="48" height="48"><span>ai receptionist</span></a>
+    <a href="/" class="mark" aria-label="Artificial Integration home"><img src="/logos/ai-logo-192.png" alt="" width="48" height="48"><span>workstation</span></a>
     <nav class="site-nav" aria-label="Main">
-      <a href="/#how" class="hide-sm">how it works</a>
-      <a href="/#industries" class="hide-sm">industries</a>
-      <a href="/pricing/">pricing</a>
+      <a href="/#inside" class="hide-sm">what's inside</a>
+      <a href="/#day" class="hide-sm">how it works</a>
+      <a href="/#trust" class="hide-sm">security</a>
+      <a href="https://desk.artificialintegration.io" class="hide-sm">sign in</a>
       <a href="/book" class="btn sm">Book a demo</a>
     </nav>
   </div>
@@ -46,42 +48,56 @@
 <section class="hero3d first">
   <div class="wrap">
     <div>
-      <span class="eyebrow" data-reveal>AI receptionist for electricians</span>
-      <h1 data-reveal data-delay="80">Never miss<br>another <em>job</em><span class="dot">.</span></h1>
-      <p class="lede" data-reveal data-delay="160">Up a ladder, mid-rewire, or driving between jobs? It answers for you, takes the job details, and texts you the lead the moment the call ends — before they ring the next sparky on Google.</p>
+      <span class="eyebrow" data-reveal>Workstation · for recruitment agencies</span>
+      <h1 data-reveal data-delay="80">Your whole desk.<br>One <em>workstation</em><span class="dot">.</span></h1>
+      <p class="lede" data-reveal data-delay="160">CV specs, Lusha, LinkedIn strings, company mapping, BD, adverts, your calendar and a live feed of who's about to hire — in one AI workspace that works beside your consultants, not instead of them.</p>
       <div class="cta-row" data-reveal data-delay="240">
-        <a href="/book" class="btn glow">Book a 15-min demo <span class="arrow">→</span></a>
-        <a href="#how" class="btn ghost">See how it works</a>
+        <a href="/book" class="btn glow">Book a 20-min demo <span class="arrow">→</span></a>
+        <a href="#inside" class="btn ghost">See what's inside</a>
       </div>
-      <p class="fine" data-reveal data-delay="320"><span>Keep your number</span><span>Set up for you</span><span>£99/month · no contract</span></p>
+      <p class="fine" data-reveal data-delay="320"><span>Mac · Windows · iPhone · browser</span><span>Works with your Lusha</span><span>Sends from Gmail or Outlook</span></p>
     </div>
 
     <div class="hero-stage" aria-hidden="true">
       <div class="orb-fallback"></div>
       <canvas id="orb"></canvas>
 
-      <div class="chip-float">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
-        <span><b>New job sent to you</b><small>SMS · just now</small></span>
+      <div class="orbit">
+        <span class="oc"><i>01</i>CV specs</span>
+        <span class="oc"><i>02</i>Lusha</span>
+        <span class="oc"><i>03</i>Mapping</span>
+        <span class="oc"><i>04</i>BD manager</span>
+        <span class="oc"><i>05</i>Adverts</span>
+        <span class="oc"><i>06</i>Composer</span>
+        <span class="oc"><i>07</i>Insights</span>
+        <span class="oc"><i>08</i>Calendar</span>
+        <span class="oc"><i>09</i>Strings</span>
+        <span class="oc"><i>10</i>Revenue</span>
       </div>
 
-      <div class="call-card">
-        <div class="card-head"><span class="live">Live call <span data-call-clock>00:00</span></span><span>you're on a job</span></div>
-        <ul class="call-lines">
-          <li class="call-line ai"><span class="who">ai</span><span class="txt" data-text="Hi, Mason Electrical. How can I help?">Hi, Mason Electrical. How can I help?</span></li>
-          <li class="call-line"><span class="who">caller</span><span class="txt" data-text="Half my sockets are off and the RCD keeps tripping.">Half my sockets are off and the RCD keeps tripping.</span></li>
-          <li class="call-line ai"><span class="who">ai</span><span class="txt" data-text="Sorry to hear that. Any burning smell or scorch marks? And what's your postcode?">Sorry to hear that. Any burning smell or scorch marks? And what's your postcode?</span></li>
-          <li class="call-line"><span class="who">caller</span><span class="txt" data-text="No, nothing like that. It's SG4.">No, nothing like that. It's SG4.</span></li>
+      <div class="chip-float">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+        <span><b>Contract awarded · £8.4m</b><small>Chelmsford · hiring likely</small></span>
+      </div>
+
+      <div class="plan-card">
+        <div class="card-head"><span class="live">Today's call list</span><span data-plan-count>0 of 5</span></div>
+        <ul class="plan-lines">
+          <li class="pl"><span class="who">Dan Reeve</span><span class="why">CV sent Fri · chase feedback</span><span class="ws-tag job">job</span></li>
+          <li class="pl"><span class="who">Priya Shah</span><span class="why">Free from Monday · 2 live roles fit</span><span class="ws-tag cand">candidate</span></li>
+          <li class="pl"><span class="who">Northgate Civils</span><span class="why">Won £8.4m school · no QS yet</span><span class="ws-tag bd">bd</span></li>
+          <li class="pl"><span class="who">Tom Ellery</span><span class="why">Interview Thu · prep call</span><span class="ws-tag job">job</span></li>
+          <li class="pl"><span class="who">Fenwick &amp; Co</span><span class="why">No contact in 41 days</span><span class="ws-tag bd">bd</span></li>
         </ul>
-        <div class="call-summary"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><b>Job captured</b> · RCD tripping, SG4. Sent to your phone.</span></div>
+        <div class="plan-foot"><b>Every call has a reason.</b> Built from your jobs, candidates and the market.</div>
       </div>
     </div>
   </div>
 
   <div class="net">
     <div class="wrap">
-      <span>Forward from any UK network</span>
-      <ul><li>EE</li><li>Vodafone</li><li>O2</li><li>Three</li><li>BT</li><li>Virgin Media</li><li>Sky</li></ul>
+      <span>Works with what your desk already uses</span>
+      <ul><li>Lusha</li><li>Gmail</li><li>Outlook</li><li>Google Calendar</li><li>Teams</li><li>Meet</li><li>Companies House</li></ul>
     </div>
   </div>
 </section>
@@ -90,168 +106,274 @@
 <section class="stats-sec">
   <div class="wrap">
     <div class="stats4">
-      <div data-reveal><span class="num"><span data-count="24">24</span>/7</span><span class="label">Calls answered</span></div>
-      <div data-reveal data-delay="80"><span class="num"><span data-count="99" data-prefix="£">£99</span></span><span class="label">Flat per month</span></div>
-      <div data-reveal data-delay="160"><span class="num"><span data-count="0">0</span></span><span class="label">Number changes for customers</span></div>
-      <div data-reveal data-delay="240"><span class="num"><span data-count="15">15</span> min</span><span class="label">Of your time to set up</span></div>
+      <div data-reveal><span class="num"><span data-count="10">10</span></span><span class="label">AI tools in one workspace</span></div>
+      <div data-reveal data-delay="80"><span class="num"><span data-count="1">1</span> h</span><span class="label">Fresh UK contract awards, every hour</span></div>
+      <div data-reveal data-delay="160"><span class="num"><span data-count="6">6</span></span><span class="label">Stage placement funnel, tracked</span></div>
+      <div data-reveal data-delay="240"><span class="num"><span data-count="4">4</span></span><span class="label">Platforms · one account</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= STORY ================= -->
-<section id="how">
+<!-- ================= DAY STORY ================= -->
+<section id="day">
   <div class="wrap">
     <div class="sec-head">
       <div data-reveal>
         <span class="eyebrow">How it works</span>
-        <h2>From first chat to first callout<span class="dot">.</span></h2>
+        <h2>A day on Workstation<span class="dot">.</span></h2>
       </div>
-      <p data-reveal data-delay="100">No hardware and no change to the number your customers ring. We build it, you test it, then you switch forwarding on.</p>
+      <p data-reveal data-delay="100">From the first call of the morning to the invoice being paid — one place, no copying between tabs, nothing living in someone's notebook.</p>
     </div>
 
     <div class="story">
-      <div class="story-steps">
-        <div class="story-step" data-step="1"><span class="n">01</span><h3>We learn your business</h3><p>Send us your website or Google listing. We pull in your services — rewires, EICRs, consumer units, EV chargers — plus prices, hours, and the area you cover.</p><span class="t">~10 minutes of your time</span></div>
-        <div class="story-step" data-step="2"><span class="n">02</span><h3>We build and tune it</h3><p>Greeting, the questions to ask, what counts as an emergency, and when to put a caller through to you. Written the way you'd talk to a customer.</p><span class="t">same day</span></div>
-        <div class="story-step" data-step="3"><span class="n">03</span><h3>You test it on a real call</h3><p>Ring your test line, try to trip it up, and read the summary that lands on your phone seconds later.</p><span class="t">~5 minutes</span></div>
-        <div class="story-step" data-step="4"><span class="n">04</span><h3>Switch on forwarding</h3><p>We send you the codes for your network. Dial them once to forward calls when you're busy, when you don't pick up, or when your phone is off. One more code switches it all off.</p><span class="t">~1 minute</span></div>
-        <div class="story-step" data-step="5"><span class="n">05</span><h3>Win the job</h3><p>Every call lands as a clean summary: what's wrong, where, and how to reach them. Call back, quote, book it in — before they ring another sparky.</p><span class="t">every day after</span></div>
-      </div>
+      <div class="story-stage ws-stage" aria-hidden="true">
+        <div class="appwin" data-step="1" data-tilt="6">
+          <div class="aw-frame">
+            <div class="aw-bar"><i></i><i></i><i></i><span>Workstation</span></div>
+            <div class="aw-body">
+              <nav class="aw-side"><b class="on"></b><b></b><b></b><b></b><b></b><b></b></nav>
+              <div class="aw-main">
 
-      <div class="story-stage" aria-hidden="true">
-        <div class="phone" data-step="1" data-tilt="8">
-          <div class="notch"></div>
-          <div class="screen-wrap">
-            <div class="screen s1">
-              <h4>Learning your business</h4><div class="cap">step 1 of 5</div>
-              <div class="field"><span>masonelectrical.co.uk</span><span class="ok">●</span></div>
-              <div class="bar"><i></i></div>
-              <ul class="scan">
-                <li><b>Services</b><span>Rewires · EICRs · EV chargers ✓</span></li>
-                <li><b>Service area</b><span>Herts · Beds · N London ✓</span></li>
-                <li><b>Hours</b><span>Mon–Fri 7:30am–5pm ✓</span></li>
-                <li><b>Pricing guide</b><span>EICR from £150 · callout £85 ✓</span></li>
-              </ul>
-            </div>
-            <div class="screen s2">
-              <h4>Your receptionist</h4><div class="cap">step 2 of 5</div>
-              <div class="greet"><small>greeting</small>“Hi, Mason Electrical — how can I help?”</div>
-              <ul class="toggles">
-                <li>Ask for postcode &amp; property type <span class="sw on"></span></li>
-                <li>Check for burning smell or sparking <span class="sw on"></span></li>
-                <li>Put emergencies through to me <span class="sw on"></span></li>
-                <li>Text landlords an EICR booking link <span class="sw on"></span></li>
-              </ul>
-            </div>
-            <div class="screen s3">
-              <div class="cap">test call · 00:14</div>
-              <h4>Your receptionist</h4>
-              <div class="avatar"></div>
-              <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="quote"><small>ai</small>Thanks — is it a house or a flat, and roughly how old is the fuse board?</div>
-            </div>
-            <div class="screen s4">
-              <h4>Your forwarding codes</h4><div class="cap">step 4 of 5 · dial once from your phone</div>
-              <ul class="codes">
-                <li><span class="lbl">When you're on another call</span><code>**67*0•••••#</code></li>
-                <li><span class="lbl">No answer after 20 seconds</span><code>**61*0•••••**20#</code></li>
-                <li><span class="lbl">When your phone is off</span><code>**62*0•••••#</code></li>
-                <li class="off"><span class="lbl">Switch it all off</span><code>##002#</code></li>
-              </ul>
-              <p class="codes-note">Mobile codes shown. We send the right codes for your network or landline.</p>
-            </div>
-            <div class="screen s5">
-              <div class="time">18:46</div>
-              <div class="date">tuesday</div>
-              <div class="notif"><div class="h"><span>AI RECEPTIONIST</span><span>now</span></div><b>New job · full rewire quote</b><br>3-bed semi · Stevenage SG1</div>
-              <div class="notif"><div class="h"><span>AI RECEPTIONIST</span><span>2m</span></div><b>Urgent · put through to you</b><br>No power to kitchen · Hitchin</div>
-              <div class="notif"><div class="h"><span>AI RECEPTIONIST</span><span>1h</span></div><b>EICR booked</b><br>Landlord · 3 flats · Thu 10:00</div>
-              <div class="won">callback booked<b>Job won.</b></div>
+                <div class="ws-screen w1">
+                  <div class="aw-h"><h4>Good morning, Sam</h4><span>Tue 4 Nov · 9 calls · 4 follow-ups</span></div>
+                  <div class="aw-cols">
+                    <ul class="aw-list">
+                      <li><b>Dan Reeve</b><span>CV sent Fri — chase feedback</span><em class="ws-tag job">job</em></li>
+                      <li><b>Priya Shah</b><span>Available Monday — 2 roles fit</span><em class="ws-tag cand">candidate</em></li>
+                      <li><b>Northgate Civils</b><span>Won £8.4m school — no QS</span><em class="ws-tag bd">bd</em></li>
+                      <li><b>Tom Ellery</b><span>Interview Thu — prep call</span><em class="ws-tag job">job</em></li>
+                      <li><b>Fenwick &amp; Co</b><span>41 days since last contact</span><em class="ws-tag bd">bd</em></li>
+                    </ul>
+                    <div class="aw-todo">
+                      <small>priority</small>
+                      <p class="done">Format Priya's CV</p>
+                      <p class="done">Spec Dan to Harlow Build</p>
+                      <p>Advert: Site Manager, Essex</p>
+                      <p>Map Northgate's directors</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ws-screen w2">
+                  <div class="aw-h"><h4>Insights</h4><span>Market signals · updated 14 min ago</span></div>
+                  <ul class="aw-sig">
+                    <li><span class="sc">92</span><div><b>£8.4m · Secondary school extension</b><span>Chelmsford · Northgate Civils · likely: Site Manager, QS</span></div></li>
+                    <li><span class="sc">84</span><div><b>£3.1m · Highways maintenance framework</b><span>Braintree · Ardley Infrastructure · likely: Engineer</span></div></li>
+                    <li><span class="sc mid">71</span><div><b>£1.9m · Library refurbishment</b><span>Cambridge · Fenwick &amp; Co · likely: Estimator</span></div></li>
+                  </ul>
+                  <div class="aw-kan"><span>new <b>12</b></span><span>contacted <b>5</b></span><span>talking <b>3</b></span><span>meeting <b>1</b></span><span class="won">won <b>1</b></span></div>
+                </div>
+
+                <div class="ws-screen w3">
+                  <div class="aw-h"><h4>Northgate Civils Ltd</h4><span>Directors · Companies House</span></div>
+                  <ul class="aw-dir">
+                    <li><span class="av">JM</span><div><b>James Marlow</b><span>Managing Director</span></div><em class="lu">mobile · email ✓</em></li>
+                    <li><span class="av">RK</span><div><b>Rachel Kaur</b><span>Commercial Director</span></div><em class="lu">email ✓</em></li>
+                    <li><span class="av">PB</span><div><b>Paul Bright</b><span>Operations Director</span></div><em class="lu dim">look up</em></li>
+                  </ul>
+                  <div class="aw-draft"><small>outreach draft</small>Hi Rachel — congratulations on the Chelmsford school award. If you're adding a QS for the delivery phase, I have two who've run NEC4 education jobs locally…</div>
+                </div>
+
+                <div class="ws-screen w4">
+                  <div class="aw-h"><h4>Spec email</h4><span>to 6 contacts · from your Outlook</span></div>
+                  <div class="aw-mail">
+                    <p><small>subject</small>Senior QS · 12 yrs · NEC4 · available now</p>
+                    <p class="ln"></p><p class="ln s"></p><p class="ln"></p><p class="ln m"></p>
+                  </div>
+                  <div class="aw-str"><small>linkedin string</small><code>("quantity surveyor" OR "QS") AND (NEC4 OR JCT) AND (school OR education) NOT trainee</code></div>
+                  <div class="aw-send">Send via Outlook <span>→</span></div>
+                </div>
+
+                <div class="ws-screen w5">
+                  <div class="aw-h"><h4>Calendar</h4><span>Week · Google + Outlook</span></div>
+                  <div class="aw-cal">
+                    <div class="d"><small>mon</small><i class="ev cand t1">Priya · registration</i><i class="ev plan t3">Plan</i></div>
+                    <div class="d"><small>tue</small><i class="ev bd t2">Northgate · intro</i></div>
+                    <div class="d"><small>wed</small><i class="ev job t1">Chase · Harlow</i><i class="ev bd t4">Fenwick · lunch</i></div>
+                    <div class="d"><small>thu</small><i class="ev job t2 hot">Interview · Tom</i></div>
+                    <div class="d"><small>fri</small><i class="ev plan t1">Plan</i><i class="ev cand t3">Offer call</i></div>
+                  </div>
+                </div>
+
+                <div class="ws-screen w6">
+                  <div class="aw-h"><h4>Revenue</h4><span>Last 90 days · whole agency</span></div>
+                  <div class="aw-fun">
+                    <p><span>Role won</span><i class="b1"></i><b>14</b></p>
+                    <p><span>CVs sent</span><i class="b2"></i><b>31</b></p>
+                    <p><span>Interview</span><i class="b3"></i><b>12</b></p>
+                    <p><span>Offer</span><i class="b4"></i><b>5</b></p>
+                    <p><span>Placed</span><i class="b5"></i><b>4</b></p>
+                  </div>
+                  <div class="aw-kpi"><div><small>fees placed</small><b>£38,400</b></div><div><small>sourced by Workstation</small><b>3 of 4</b></div></div>
+                </div>
+
+              </div>
             </div>
           </div>
+          <div class="aw-pop p1"><b>9 calls</b> each with a reason</div>
+          <div class="aw-pop p2"><b>New award</b> · score 92</div>
+          <div class="aw-pop p3"><b>Mobile found</b> via your Lusha</div>
+          <div class="aw-pop p4"><b>Spec sent</b> from your inbox</div>
+          <div class="aw-pop p5"><b>Teams invite</b> sent to both</div>
+          <div class="aw-pop p6"><b>Placed</b> · £9,600 fee</div>
         </div>
-        <div class="story-dots"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="story-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="story-steps">
+        <div class="story-step" data-step="1"><span class="n">01 · 08:30</span><h3>Your day, already planned</h3><p>The Motherboard pulls your jobs, candidates and clients into one call list — and every call comes with a reason: a CV to chase, a candidate coming free, a client who's gone quiet. Your priority to-dos and follow-ups sit beside it.</p><span class="t">candidates · jobs · BD in one view</span></div>
+        <div class="story-step" data-step="2"><span class="n">02 · 09:15</span><h3>Know who's hiring before the advert</h3><p>Insights scans new UK public contract awards every hour and scores them against your agency's market. A firm that just won an £8m school build needs people next month — you hear about it today.</p><span class="t">find a tender · contracts finder · hourly</span></div>
+        <div class="story-step" data-step="3"><span class="n">03 · 10:00</span><h3>Reach the person who decides</h3><p>Directors come straight from Companies House. One click looks them up in your agency's Lusha, and Workstation drafts the opening message for you to edit and send.</p><span class="t">your Lusha key · your credits · your limits</span></div>
+        <div class="story-step" data-step="4"><span class="n">04 · 11:30</span><h3>Spec your best candidate</h3><p>Format the CV, write the spec, build the LinkedIn search string and the message — then send it from your own Gmail or Outlook, so replies land where they always have.</p><span class="t">cv format · spec email · strings · composer</span></div>
+        <div class="story-step" data-step="5"><span class="n">05 · 14:00</span><h3>Book it without leaving</h3><p>Interviews, client meetings and chases live in one calendar, coloured by workstream. Book with a Teams or Meet link and the invite goes out; the interview moves the deal forward on its own.</p><span class="t">google · outlook · teams · meet</span></div>
+        <div class="story-step" data-step="6"><span class="n">06 · month end</span><h3>See exactly what it earned</h3><p>Every deal runs from role won to invoice paid. Fees, conversion and placements per consultant — and whether each one started in Insights, the call list, or your own network.</p><span class="t">placements · fees · attribution</span></div>
+        <p class="fine-note">Screens show sample data.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= BENEFITS ================= -->
-<section>
+<!-- ================= SIGNALS ================= -->
+<section class="dark sig-sec" data-header-dark>
+  <div class="wrap">
+    <div class="sig-stage" aria-hidden="true">
+      <canvas id="signals"></canvas>
+      <div class="sig-feed">
+        <div class="sf"><span class="sc">92</span><div><b>£8.4m · School extension</b><small>Chelmsford · 3 directors found</small></div></div>
+        <div class="sf"><span class="sc">84</span><div><b>£3.1m · Highways framework</b><small>Braintree · 2 directors found</small></div></div>
+        <div class="sf"><span class="sc">77</span><div><b>£5.6m · Care home new build</b><small>Harlow · 4 directors found</small></div></div>
+        <div class="sf"><span class="sc">71</span><div><b>£1.9m · Library refurbishment</b><small>Cambridge · 2 directors found</small></div></div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow" data-reveal>Insights</span>
+      <h2 data-reveal data-delay="80">BD from signals, not guesswork<span class="dot">.</span></h2>
+      <p class="lede mt" data-reveal data-delay="160">Contract awards are the earliest public sign a company is about to hire. Workstation reads them every hour, keeps the ones that fit your agency, and turns each one into a lead you can work.</p>
+      <ul class="ticks" data-reveal data-delay="240">
+        <li>Scored against your clients, sectors and area — set up in a short chat</li>
+        <li>Directors from Companies House, contacts from your Lusha</li>
+        <li>Lead pipeline: new → contacted → talking → meeting → won</li>
+        <li>Snooze or dismiss in a click; nothing you've seen comes back</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSIDE ================= -->
+<section id="inside">
   <div class="wrap">
     <div class="sec-head">
-      <div data-reveal><span class="eyebrow">Why it works</span><h2>You can't answer from the loft<span class="dot">.</span></h2></div>
-      <p data-reveal data-delay="100">Most callers won't leave a voicemail — they ring the next electrician. This picks up, takes the details, and gets the job to you.</p>
+      <div data-reveal><span class="eyebrow">What's inside</span><h2>Everything a desk needs. Nothing it doesn't<span class="dot">.</span></h2></div>
+      <p data-reveal data-delay="100">Each tool is built around a job recruiters already do every day — so it saves time from the first morning, not after a six-week rollout.</p>
     </div>
-    <div class="bento">
+    <div class="bento ws-bento">
       <div class="tile wide" data-tilt="3" data-reveal>
-        <div><span class="ic"><svg viewBox="0 0 24 24"><path d="M16 6.5a4 4 0 0 0-7 2.6V19M6.5 13h7M6 19h11"/></svg></span><h3>Less than one callout a month</h3><p>One flat monthly fee. No office staff, no answering service billing you per call.</p></div>
-        <div class="big">£99<small>/ month + VAT</small></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></span><h3>The Motherboard</h3><p>Your master sheet, finally alive. Import the spreadsheet you already keep and it becomes the day plan, the call list and the to-do bulletin — reorderable, shared with your team.</p></div>
+        <div class="big">1<small>place for the whole desk</small></div>
       </div>
-      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="6.5" cy="12" r="3.5"/><circle cx="17.5" cy="12" r="3.5"/><path d="M6.5 15.5h11"/></svg></span><h3>No more voicemail</h3><p>Customers get a real conversation, not a beep. You get their name, number, postcode, and the fault.</p></div>
-      <div class="tile" data-tilt="5" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v16M8 6a3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 3M16 6a3 3 0 0 1 3 3 3 3 0 0 1 0 6 3 3 0 0 1-3 3"/></svg></span><h3>Knows the trade</h3><p>EICRs, consumer units, RCDs, EV chargers. Asks the questions you would, not a call-centre script.</p></div>
-      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><h3>On when you're on the tools</h3><p>Forward calls when you're busy or don't pick up, and set the hours it covers.</p></div>
-      <div class="tile" data-tilt="5" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6z"/></svg></span><h3>Emergencies reach you</h3><p>No power, burning smells, sparking sockets — you decide what's urgent, and those calls get put straight through.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><h3>CV specs &amp; formatter</h3><p>Raw CV in, branded agency CV out — plus the spec that sells it, in your voice.</p></div>
+      <div class="tile" data-tilt="5" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></span><h3>Lusha, built in</h3><p>Mobile and email lookups inside the workflow, on your agency's own account, with per-person daily limits.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h13"/></svg></span><h3>LinkedIn strings &amp; composer</h3><p>Boolean search strings for the exact profile, and connection messages that don't read like a template.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5 10.5 16M16 7.5 13.5 16M8.5 6h7"/></svg></span><h3>Company mapping</h3><p>Who's who in a target client, which roles they're light on, and which of your candidates fill the gap.</p></div>
+      <div class="tile" data-tilt="5" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/></svg></span><h3>Adverts</h3><p>Job adverts written from the brief in seconds, ready for every board you post to.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span><h3>Spec emails</h3><p>Pick the candidate, pick the contacts, send from your own Gmail or Outlook. Follow-ups are tracked for you.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span><h3>BD manager</h3><p>Every prospect, every touch, and who's due a call — so no client goes cold by accident.</p></div>
+      <div class="tile" data-tilt="5" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><h3>Call notes &amp; dictation</h3><p>Talk, don't type. Notes are transcribed and filed against the candidate or client.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Calendar</h3><p>Day, week and agenda views over Google and Outlook, coloured by candidate, job and BD work.</p></div>
+      <div class="tile" data-tilt="5" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Revenue funnel</h3><p>Role won to invoice paid, per consultant, with fees worked out for you on perm and contract.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= FAN ================= -->
-<section class="dark fan-sec" data-header-dark>
+<!-- ================= FUNNEL (dark, 3D stair) ================= -->
+<section class="dark stair-sec" data-header-dark>
   <div class="wrap">
     <div>
-      <span class="eyebrow" data-reveal>After every call</span>
-      <h2 data-reveal data-delay="80">The details, not a voicemail<span class="dot">.</span></h2>
-      <p class="lede mt" data-reveal data-delay="160">Each call becomes a message you can act on between jobs, in ten seconds.</p>
+      <span class="eyebrow" data-reveal>Why it pays for itself</span>
+      <h2 data-reveal data-delay="80">Every placement, traced to where it started<span class="dot">.</span></h2>
+      <p class="lede mt" data-reveal data-delay="160">Most tools ask you to take the value on trust. Workstation shows it: each deal carries its source from the first signal to the paid invoice.</p>
       <ul class="ticks" data-reveal data-delay="240">
-        <li>Name, number, postcode, and what the fault is</li>
-        <li>Tagged as a new lead, existing customer, or urgent</li>
-        <li>Summary to you by SMS or email when the call ends</li>
-        <li>Full transcript and recording kept for reference</li>
+        <li>Sourced, assisted or manual — attribution set on the server, not by hand</li>
+        <li>Perm fees from salary × fee %, contract from margin × days</li>
+        <li>Placements against your own baseline, per consultant</li>
+        <li>30, 90 and 365-day views for the Monday meeting</li>
       </ul>
     </div>
-    <div class="fan" aria-hidden="true">
-      <div class="nc"><div class="h"><span>07:58</span><span class="tag solid">urgent</span></div><div class="k"><span>issue</span><span>Power out to kitchen and lights</span></div><div class="k"><span>action</span><span>Put through to you live</span></div></div>
-      <div class="nc"><div class="h"><span>11:20</span><span class="tag">new lead</span></div><div class="k"><span>job</span><span>Consumer unit upgrade quote</span></div><div class="k"><span>where</span><span>Hitchin SG4</span></div></div>
-      <div class="nc"><div class="h"><span>13:05</span><span class="tag ink">existing</span></div><div class="k"><span>note</span><span>Confirming EICR, Thursday 9am</span></div></div>
-      <div class="nc"><div class="h"><span>19:41</span><span class="tag">new lead</span></div><div class="k"><span>job</span><span>EV charger install, driveway</span></div><div class="k"><span>when</span><span>Any weekday morning</span></div></div>
+    <div class="stair" aria-hidden="true">
+      <div class="st"><span class="k">01</span><b>Role won</b><small>From Insights · Northgate Civils</small></div>
+      <div class="st"><span class="k">02</span><b>CVs sent</b><small>3 specs · from Outlook</small></div>
+      <div class="st"><span class="k">03</span><b>Interview</b><small>Thu 10:00 · Teams</small></div>
+      <div class="st"><span class="k">04</span><b>Offer</b><small>£64,000 · 15% fee</small></div>
+      <div class="st"><span class="k">05</span><b>Placed</b><small>£9,600 fee · sourced</small></div>
+      <div class="st hot"><span class="k">06</span><b>Invoice paid</b><small>Counted in your revenue</small></div>
     </div>
   </div>
 </section>
 
-<!-- ================= INDUSTRIES ================= -->
-<section id="industries">
+<!-- ================= BEFORE / AFTER ================= -->
+<section id="why">
   <div class="wrap">
     <div class="sec-head">
-      <div data-reveal><span class="eyebrow">Who it's for</span><h2>Built for electricians. Works for every trade<span class="dot">.</span></h2></div>
-      <p data-reveal data-delay="100">Each receptionist is set up for the trade: the questions to ask, the jargon, and what makes a call urgent.</p>
+      <div data-reveal><span class="eyebrow">Why agencies switch</span><h2>Fewer tabs. More placements<span class="dot">.</span></h2></div>
+      <p data-reveal data-delay="100">Consultants lose hours a week moving information between tools that don't talk to each other. Workstation is the one they all report to.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-col before" data-reveal>
+        <h3>Without Workstation</h3>
+        <ul>
+          <li>Ten tabs open: CRM, Lusha, LinkedIn, email, a spreadsheet, a notebook</li>
+          <li>Call lists written each morning from memory</li>
+          <li>BD driven by job boards — after every other agency has seen the advert</li>
+          <li>Lusha credits spent with no idea who used them, or on what</li>
+          <li>Follow-ups missed when someone's off</li>
+          <li>Nobody can say which activity actually made the placement</li>
+        </ul>
+      </div>
+      <div class="vs-col after" data-reveal data-delay="120" data-tilt="3">
+        <h3>With Workstation</h3>
+        <ul>
+          <li>One workspace on Mac, Windows, iPhone and the browser</li>
+          <li>A call list built for you, with a reason on every line</li>
+          <li>Hiring signals the day contracts are awarded</li>
+          <li>Lusha usage per person, with daily limits set by the agency</li>
+          <li>Follow-ups and chases surfaced automatically, shared with the team</li>
+          <li>Revenue by source and consultant, from role won to invoice paid</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="marquee"><div class="track"><div class="set"><a class="pill hot" href="/removals/">Removals <small>move size · access</small></a><span class="pill">Plumbing &amp; heating <small>boilers · leaks</small></span><a class="pill hot" href="/electricians/">Electricians <small>faults · EICRs</small></a><span class="pill">Builders <small>extensions · lofts</small></span><span class="pill">Roofers <small>storm damage</small></span><span class="pill">Locksmiths <small>lockouts</small></span><span class="pill">Garages <small>MOTs · servicing</small></span><span class="pill">Cleaning <small>end of tenancy</small></span></div><div class="set dup" aria-hidden="true"><a class="pill hot" href="/removals/" tabindex="-1">Removals <small>move size · access</small></a><span class="pill">Plumbing &amp; heating <small>boilers · leaks</small></span><a class="pill hot" href="/electricians/" tabindex="-1">Electricians <small>faults · EICRs</small></a><span class="pill">Builders <small>extensions · lofts</small></span><span class="pill">Roofers <small>storm damage</small></span><span class="pill">Locksmiths <small>lockouts</small></span><span class="pill">Garages <small>MOTs · servicing</small></span><span class="pill">Cleaning <small>end of tenancy</small></span></div></div></div>
-  <div class="marquee rev"><div class="track"><div class="set"><span class="pill">Landscaping <small>seasonal quotes</small></span><span class="pill">Estate agents <small>viewings · valuations</small></span><span class="pill">Letting agents <small>maintenance</small></span><span class="pill">Clinics <small>bookings</small></span><span class="pill">Accountants <small>new clients</small></span><span class="pill">Solicitors <small>enquiries</small></span><span class="pill">Pest control <small>urgent callouts</small></span><span class="pill">Scaffolding <small>site quotes</small></span></div><div class="set dup" aria-hidden="true"><span class="pill">Landscaping <small>seasonal quotes</small></span><span class="pill">Estate agents <small>viewings · valuations</small></span><span class="pill">Letting agents <small>maintenance</small></span><span class="pill">Clinics <small>bookings</small></span><span class="pill">Accountants <small>new clients</small></span><span class="pill">Solicitors <small>enquiries</small></span><span class="pill">Pest control <small>urgent callouts</small></span><span class="pill">Scaffolding <small>site quotes</small></span></div></div></div>
 </section>
 
-<!-- ================= PRICING ================= -->
-<section>
-  <div class="wrap price-wrap">
-    <div data-reveal>
-      <span class="eyebrow">Pricing</span>
-      <h2>One plan. One price<span class="dot">.</span></h2>
-      <p class="lede mt">No per-minute surprises, no long contract. Setup is done for you.</p>
-      <p class="mt"><a href="/pricing/" class="btn ghost">Full pricing &amp; comparison <span class="arrow">→</span></a></p>
+<!-- ================= TRUST ================= -->
+<section id="trust" class="trust-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div data-reveal><span class="eyebrow">Security</span><h2>Built like your data matters<span class="dot">.</span></h2></div>
+      <p data-reveal data-delay="100">Candidate and client data is the agency's most valuable asset. Workstation was engineered around protecting it from day one.</p>
     </div>
-    <div class="price-card glowing" data-reveal data-delay="120">
-      <div class="plan">Receptionist</div>
-      <div class="price"><span class="amt">£99</span><span class="per">/ month + VAT</span></div>
-      <div class="sub">Monthly rolling · cancel any time</div>
-      <ul class="ticks">
-        <li>Works with your existing number</li>
-        <li>SMS + email summaries for every call</li>
-        <li>Urgent calls transferred to you or your team</li>
-        <li>Transcripts and recordings</li>
-        <li>Built, tested, and tuned for you</li>
-      </ul>
-      <a href="/book" class="btn glow">Book a demo <span class="arrow">→</span></a>
+    <div class="trust-grid">
+      <div class="tc" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Two-factor sign-in</h3><p>Every user signs in with a password and an authenticator app. Sessions expire when idle.</p></div>
+      <div class="tc" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 8-8M16 7l2 2"/></svg></span><h3>Your keys stay yours</h3><p>Lusha connects with your agency's own key. Owners and admins control limits and see usage per person.</p></div>
+      <div class="tc" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span><h3>Roles &amp; permissions</h3><p>Owners, admins and consultants each see what their role needs — nothing more.</p></div>
+      <div class="tc" data-reveal><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></span><h3>Export any time</h3><p>Download your agency's data whenever you like. It's yours, in a format you can take anywhere.</p></div>
+      <div class="tc" data-reveal data-delay="80"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span><h3>Deletion that means it</h3><p>Delete an account or the whole agency, with a 14-day cooling-off period before it's wiped.</p></div>
+      <div class="tc" data-reveal data-delay="160"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4M12 8v4l3 2"/></svg></span><h3>Guard-railed AI</h3><p>Per-person daily AI limits, alerts before they're reached, and a fallback model if one provider is slow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLATFORMS ================= -->
+<section class="plat-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div data-reveal><span class="eyebrow">Everywhere you work</span><h2>On the desk. On the train. On site<span class="dot">.</span></h2></div>
+      <p data-reveal data-delay="100">One account, the same workspace everywhere. The desktop app updates itself, so the whole team is always on the latest version.</p>
+    </div>
+    <div class="plats">
+      <div class="pf" data-reveal data-tilt="6"><span class="dev mac"></span><b>Mac</b><small>signed &amp; notarised app</small></div>
+      <div class="pf" data-reveal data-delay="80" data-tilt="6"><span class="dev win"></span><b>Windows</b><small>desktop app</small></div>
+      <div class="pf" data-reveal data-delay="160" data-tilt="6"><span class="dev ios"></span><b>iPhone</b><small>calls, notes, CVs on the go</small></div>
+      <div class="pf" data-reveal data-delay="240" data-tilt="6"><span class="dev web"></span><b>Browser</b><small>nothing to install</small></div>
     </div>
   </div>
 </section>
@@ -266,14 +388,14 @@
       </div>
     </div>
     <div class="faq" data-reveal>
-      <details><summary>What is an AI receptionist?</summary><div class="a"><p>Software that answers your phone, holds a natural conversation, collects the caller's details, and sends you a summary. It handles the calls you would otherwise miss.</p></div></details>
-      <details><summary>Do I need a new phone number?</summary><div class="a"><p>No. Your customers keep ringing the number they already know. We give your receptionist its own line behind the scenes, and you forward calls to it — when you're busy, when you don't answer, or always. Most UK mobile and landline networks support this with a short code.</p></div></details>
-      <details><summary>Will callers know it's AI?</summary><div class="a"><p>It sounds natural and is trained on your business. If a caller asks, it says it's an AI assistant — we don't configure it to claim otherwise.</p></div></details>
-      <details><summary>What happens with emergencies?</summary><div class="a"><p>You decide what counts as urgent — no power, burning smell, sparking, a vulnerable customer. Those calls are put through live to you or a team member, and flagged in your summary.</p></div></details>
-      <details><summary>How long does setup take?</summary><div class="a"><p>Usually a few working days. We build the receptionist after one short call with you; UK phone lines need a quick regulatory check before they're issued. Then you make a test call and switch forwarding on.</p></div></details>
-      <details><summary>Can I control when it answers?</summary><div class="a"><p>Yes, two ways. Forwarding decides which calls reach it — only when you don't pick up, only when you're busy, or all calls — and you can switch it on or off from your phone. The receptionist also has working hours you set.</p></div></details>
-      <details><summary>Are calls recorded? What about GDPR?</summary><div class="a"><p>Calls are transcribed and can be recorded. Callers are told at the start of the call. Data is processed under UK GDPR and we sign a data processing agreement with every customer. See our <a href="/privacy/">privacy policy</a>.</p></div></details>
-      <details><summary>Is there a contract?</summary><div class="a"><p>No. Monthly rolling, cancel any time.</p></div></details>
+      <details><summary>Does Workstation replace my consultants?</summary><div class="a"><p>No. It does the preparation — the call list, the research, the first draft — so consultants spend their time on the phone and in meetings. Every message is theirs to edit before it goes.</p></div></details>
+      <details><summary>Do we need Lusha?</summary><div class="a"><p>Yes. Workstation connects to your agency's existing Lusha account. Owners set the key once and choose a daily limit per person; usage is shown per consultant.</p></div></details>
+      <details><summary>Does it replace our CRM?</summary><div class="a"><p>It can sit alongside it. Many agencies start by importing the spreadsheet their consultants already work from, and Workstation becomes the daily workspace on top.</p></div></details>
+      <details><summary>Which sectors is it for?</summary><div class="a"><p>The tools work for any white-collar recruitment desk. Insights is tuned first for construction, property and engineering, where public contract awards are the clearest early signal of hiring.</p></div></details>
+      <details><summary>Will emails come from us?</summary><div class="a"><p>Yes. Spec emails and outreach send from each consultant's own Gmail or Outlook, so replies arrive in the inbox they already use.</p></div></details>
+      <details><summary>How long does set-up take?</summary><div class="a"><p>Usually a single session. We create your agency, invite your team, import your spreadsheet and set up your market profile with you, so Insights is relevant from day one.</p></div></details>
+      <details><summary>Can we trial it first?</summary><div class="a"><p>Yes. We run pilots with an agreed goal and dates, and review placements, fees and usage with you at the end.</p></div></details>
+      <details><summary>How is it priced?</summary><div class="a"><p>Per seat, per month. We'll walk you through it on the demo once we know the size of your team.</p></div></details>
     </div>
   </div>
 </section>
@@ -281,8 +403,8 @@
 <!-- ================= FINAL ================= -->
 <section class="dark final" data-header-dark>
   <div class="wrap">
-    <h2 data-reveal>Stay on the tools. Stop losing jobs to voicemail<span class="dot">.</span></h2>
-    <p class="lede" data-reveal data-delay="100">Hear it answer as your business in a 15-minute demo.</p>
+    <h2 data-reveal>Give every consultant a better desk<span class="dot">.</span></h2>
+    <p class="lede" data-reveal data-delay="100">See Workstation on your own market in a 20-minute demo.</p>
     <div class="cta-row" data-reveal data-delay="200">
       <a href="/book" class="btn glow">Book a demo <span class="arrow">→</span></a>
       <a href="mailto:hello@artificialintegration.io" class="btn ghost">hello@artificialintegration.io</a>
@@ -297,10 +419,10 @@
     <div class="foot-grid">
       <div class="brand">
         <img src="/logos/ai-logo-192.png" alt="Artificial Integration" width="56" height="56">
-        <p>AI receptionists for electricians and UK trades. Built and run by a two-person engineering studio in London.</p>
+        <p>Workstation is the AI workspace for recruitment agencies. Built and run by a two-person engineering studio in London.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="/#how">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/book">Book a demo</a></li></ul></div>
-      <div><h4>Industries</h4><ul><li><a href="/electricians/">Electricians</a></li><li><a href="/removals/">Removals</a></li><li><a href="/#industries">All industries</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="/#inside">What's inside</a></li><li><a href="/#day">How it works</a></li><li><a href="/#trust">Security</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="/book">Book a demo</a></li><li><a href="https://desk.artificialintegration.io">Sign in</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="mailto:hello@artificialintegration.io">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div>
     </div>
     <div class="foot-base">
