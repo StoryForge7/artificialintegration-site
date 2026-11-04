@@ -1,0 +1,11 @@
+/* Contact / booking page: embedded Google Calendar appointment schedule. */
+.book-head { max-width: 680px; }
+.book-card { margin-top: 40px; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(120,50,20,.30); }
+.book-card iframe { display: block; width: 100%; height: 720px; border: 0; }
+.book-alt { margin-top: 16px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.book-alt a { color: var(--ink-2); }
+@media (max-width: 640px) {
+  .book-card { border-radius: 14px; margin-left: calc(-1 * var(--gutter) / 2); margin-right: calc(-1 * var(--gutter) / 2); }
+  .book-card iframe { height: 900px; }
+}
