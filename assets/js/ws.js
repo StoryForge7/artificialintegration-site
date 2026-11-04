@@ -204,3 +204,33 @@ if (stair && !reduce) {
     stair.style.setProperty('--p', (1 - Math.pow(1 - p, 3)).toFixed(3)); // ease-out
   });
 } else if (stair) stair.style.setProperty('--p', '1');
+
+/* ---------- 6. Manifesto: words light up as the heading scrolls into view ---------- */
+const mani = document.querySelector('[data-words]');
+if (mani && !reduce) {
+  // Wrap each word (keeping inline elements like <em>) in a span; text stays readable to screen readers.
+  const words = [];
+  const wrap = node => {
+    [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        ch.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const sp = document.createElement('span'); sp.className = 'mw'; sp.textContent = part;
+          words.push(sp); frag.appendChild(sp);
+        });
+        ch.replaceWith(frag);
+      } else if (ch.nodeType === Node.ELEMENT_NODE) wrap(ch);
+    });
+  };
+  wrap(mani);
+  onScrollFrame(() => {
+    const r = mani.getBoundingClientRect(), vh = window.innerHeight;
+    const p = Math.min(1, Math.max(0, (vh * 0.95 - r.top) / (vh * 0.5))); // 0 entering → 1 by mid-screen
+    words.forEach((w, i) => {
+      const k = Math.min(1, Math.max(0, p * words.length - i));
+      w.style.setProperty('--o', (0.12 + 0.88 * k).toFixed(3));
+    });
+  });
+}

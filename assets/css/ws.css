@@ -213,6 +213,34 @@ html:not(.js) .orbit { display: none; }
 .dev.web::before { top: 14px; }
 .dev.web::after { content: ''; position: absolute; left: 7px; top: 5px; width: 20px; height: 4px; border-radius: 2px; background: var(--ink-3); }
 
+
+/* ---------- Human manifesto ---------- */
+section.human { padding: 120px 0 104px; text-align: center; position: relative; overflow: hidden;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(255,186,150,.22), transparent 70%), var(--bg); }
+.human .manifesto { font-size: clamp(48px, 9vw, 128px); letter-spacing: -0.05em; line-height: .95; margin: 22px auto 28px; }
+.human .manifesto em { font-style: normal; }
+.human .manifesto em, .human .manifesto em .mw { background: linear-gradient(100deg, #F08A5D 0%, var(--accent) 50%, #C9542B 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mw { display: inline-block; opacity: var(--o, 1); transform: translateY(calc((1 - var(--o, 1)) * 18px)); transition: opacity .25s linear; }
+.human .lede { margin: 0 auto; max-width: 620px; }
+.duo { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; margin-top: 64px; text-align: left; }
+.duo-col { border-radius: 18px; padding: 28px 26px 26px; border: 1px solid var(--line); background: #fff; }
+.duo-col h3 { font-size: 20px; margin: 10px 0 12px; }
+.duo-col ul { list-style: none; }
+.duo-col li { position: relative; padding: 9px 0 9px 24px; border-bottom: 1px dashed var(--line); font-size: 14px; color: var(--ink-2); }
+.duo-col li:last-child { border-bottom: none; }
+.duo-col li::before { content: '→'; position: absolute; left: 0; top: 9px; font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.duo-k { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.duo-col.ws { --rx: 0deg; --ry: 0deg; background: var(--ink); border-color: var(--ink); color: var(--on-dark);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .35s var(--ease); box-shadow: 0 40px 80px -40px rgba(227,107,63,.55); }
+.duo-col.ws h3 { color: var(--on-dark); }
+.duo-col.ws li { color: #DADAD5; border-color: var(--line-dark); }
+.duo-plus { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; font-size: 26px; box-shadow: 0 14px 30px -10px rgba(227,107,63,.6); }
+@media (max-width: 760px) {
+  section.human { padding: 80px 0 72px; }
+  .duo { grid-template-columns: 1fr; margin-top: 44px; }
+  .duo-plus { justify-self: center; width: 44px; height: 44px; margin: -6px 0; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .appwin { --s: .9; }
