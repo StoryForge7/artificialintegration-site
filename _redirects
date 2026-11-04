@@ -1,6 +1,6 @@
-# All "Book a demo" CTAs hit /book. Swap the target for the booking calendar URL when live.
-/book      /contact/   302
-/book/     /contact/   302
+# All "Book a demo" CTAs hit /book -> Google Calendar appointment schedule ("Workstation demo", hello@artificialintegration.io).
+/book      https://calendar.app.google/nZwg6i4VZckRvQXp9   302
+/book/     https://calendar.app.google/nZwg6i4VZckRvQXp9   302
 # AI receptionist retired (Nov 2026): old pages go to the Workstation home page.
 /pricing        /   301
 /pricing/       /   301
