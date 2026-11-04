@@ -3,6 +3,8 @@
 // Config (Cloudflare dashboard → Pages project → Settings → Variables and Secrets, type "Secret"):
 //   SITE_PASSWORD  the shared password. Changing it signs everyone out.
 // Fails closed: if SITE_PASSWORD is missing, every page returns 503.
+//   GATE_OPEN      optional, plain variable. Exactly "1" turns the gate off (site public, still noindex).
+//                  Any other value or unset = gate on. Pages applies variable changes on the next deployment.
 // To remove the gate later, delete this file (or the whole functions/ folder) and push.
 
 const COOKIE = '__Host-ai_gate';
@@ -98,6 +100,15 @@ export async function onRequest(ctx) {
 
   // Never serve source of the gate itself or build tooling as static files.
   if (path.startsWith('/functions/') || path.startsWith('/tools/')) return new Response('Not found', { status: 404 });
+
+  // Temporary public mode (e.g. partner review). Strict "1" so a typo keeps the gate on.
+  if (env.GATE_OPEN === '1') {
+    if (path === LOGIN || path === '/__logout') return new Response(null, { status: 303, headers: noStore({ Location: '/' }) });
+    const res = await next();
+    const out = new Response(res.body, res);
+    out.headers.set('X-Robots-Tag', 'noindex, nofollow');   // keep it out of search while open
+    return out;
+  }
 
   const pw = env.SITE_PASSWORD;
   if (!pw) {
