@@ -1,0 +1,52 @@
+/* Sector landing pages (/construction/, /legal/, /finance/), plus the shared founder block and sector cards on the home page.
+   Loads after site.css + home.css + ws.css and reuses their tokens and components (.sec-head, .vs, .bento/.tile, .faq, .final). */
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.sectors-line { margin-top: 18px; font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.sectors-line a { color: var(--ink); text-underline-offset: 3px; }
+.sectors-line a:hover { color: var(--accent); }
+
+/* Sector hero */
+.s-hero { position: relative; margin-top: -72px; padding: 168px 0 96px; border-top: none;
+  background: radial-gradient(55% 60% at 82% 28%, rgba(255,186,150,.32), transparent 70%), var(--bg); }
+.s-hero h1 { font-size: clamp(40px, 6vw, 78px); letter-spacing: -0.04em; line-height: 0.98; margin: 22px 0 26px; max-width: 920px; }
+.s-hero h1 em { font-style: normal; background: linear-gradient(100deg, #F08A5D 0%, var(--accent) 50%, #C9542B 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.s-hero .lede { font-size: 19px; max-width: 660px; }
+.s-hero .fine { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+.s-hero .fine span::before { content: '✓ '; color: var(--accent); }
+
+/* Sample hiring signals */
+.signals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sig { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+.sig .k { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.sig b { display: block; font-size: 18px; font-weight: 500; letter-spacing: -0.01em; margin: 12px 0 6px; }
+.sig p { font-size: 13px; color: var(--ink-2); }
+.sig .who { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--line); font-family: var(--mono); font-size: 11px; color: var(--ink); }
+.s-note { margin-top: 16px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+
+/* Founder block */
+.founder .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.founder h2 { font-size: clamp(32px, 4.2vw, 54px); letter-spacing: -0.035em; line-height: 1.02; margin: 18px 0 22px; }
+.founder h2 em { font-style: normal; color: var(--accent); }
+.founder .lede + .lede { margin-top: 14px; }
+.people { display: grid; gap: 14px; }
+.person { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; }
+.person .av { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-family: var(--mono); font-size: 13px; }
+.person b { display: block; font-size: 16px; font-weight: 500; }
+.person .role { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+.person p { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+
+/* Sector cards (home page) */
+.sectors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sector-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; transition: box-shadow .2s, transform .2s; }
+.sector-card:hover { box-shadow: 0 30px 60px -30px rgba(10,10,10,.25); transform: translateY(-2px); }
+.sector-card .k { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.sector-card h3 { font-size: 22px; letter-spacing: -0.02em; margin: 14px 0 10px; }
+.sector-card p { font-size: 14px; color: var(--ink-2); flex: 1; }
+.sector-card .go { margin-top: 22px; font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.sector-card:hover .go { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .signals, .sectors-grid { grid-template-columns: 1fr; }
+  .founder .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .s-hero { padding: 120px 0 64px; }
+}
